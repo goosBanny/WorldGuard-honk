@@ -1232,8 +1232,8 @@ public class EventAbstractionListener extends AbstractListener {
 
     @EventHandler(ignoreCancelled = true)
     public void onCauldronLevelChange(CauldronLevelChangeEvent event) {
-        if (getWorldConfig(event.getEntity().getWorld()).isEventDisabled(event.getEventName())) return;
         if (event.getEntity() == null) return;
+        if (getWorldConfig(event.getEntity().getWorld()).isEventDisabled(event.getEventName())) return;
         interactDebounce.debounce(event.getBlock(), event.getEntity(), event,
                 new UseBlockEvent(event, create(event.getEntity()),
                         event.getBlock()).setAllowed(hasInteractBypass(event.getBlock())));
